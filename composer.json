@@ -1,0 +1,49 @@
+{
+    "name": "lephare/import-bundle",
+    "type": "symfony-bundle",
+    "description": "Provide Symfony integration for lephare/import",
+    "authors": [
+        {
+            "name": "Le Phare",
+            "homepage": "https://www.lephare.com"
+        }
+    ],
+    "require": {
+        "php": "^7.4|^8.0",
+        "lephare/import": "self.version",
+        "monolog/monolog": "^2.0|^3.0",
+        "symfony/framework-bundle": "^5.4|^6.0",
+        "symfony/lock": "^5.4|^6.0",
+        "symfony/yaml": "^5.4|^6.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "LePhare\\ImportBundle\\": ""
+        },
+        "exclude-from-classmap": [
+            "/Tests/"
+        ]
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-main": "2.7-dev"
+        }
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "require-dev": {
+        "doctrine/collections": "^1.6|^2.0",
+        "friendsofphp/php-cs-fixer": "^3.3",
+        "phpstan/phpstan": "^1.4",
+        "symfony/config": "^5.4|^6.0",
+        "symfony/event-dispatcher": "^5.4|^6.0",
+        "symfony/mailer": "^5.4|^6.0",
+        "symfony/maker-bundle": "^1.36"
+    },
+    "suggest": {
+        "symfony/mailer": "to enable support for email reports"
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}

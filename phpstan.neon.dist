@@ -1,0 +1,12 @@
+# Config Phpstan
+parameters:
+    level: 5
+    paths:
+        - .
+    excludePaths:
+        - Test/
+        - Tests/
+        - vendor/
+        - node_modules/
+        - Resources/
+    tmpDir: .phpstan.cache
