@@ -2,6 +2,7 @@
     "name": "lephare/import-bundle",
     "type": "symfony-bundle",
     "description": "Provide Symfony integration for lephare/import",
+    "license": "MIT",
     "authors": [
         {
             "name": "Le Phare",

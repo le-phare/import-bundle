@@ -5,11 +5,11 @@ MySQL ou PostgreSQL.
 
 ## Sommaire
 
-- [Installation](install.md)
-- [Configuration](configure.md)
-    - [Chargement](configure/load.md)
-    - [Copie](configure/copy.md)
-- [Utilisation](usage.md)
-- [Processus d'exécution](process.md)
-- [Événements](events.md)
-- [Fonctionnalités](features.md)
+- [Installation](docs/install.md)
+- [Configuration](docs/configure.md)
+    - [Chargement](docs/configure/load.md)
+    - [Copie](docs/configure/copy.md)
+- [Utilisation](docs/usage.md)
+- [Processus d'exécution](docs/process.md)
+- [Événements](docs/events.md)
+- [Fonctionnalités](docs/features.md)
