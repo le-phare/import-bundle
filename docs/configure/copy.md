@@ -1,6 +1,6 @@
-# Copier les données
+# Copy data
 
-Le processus de copie ("copy") permet de copier les données des tables d'import vers les tables de l'application.
+The copy process copies data from the import tables to the application tables.
 
 ```yaml
 <name>:
@@ -13,22 +13,22 @@ Le processus de copie ("copy") permet de copier les données des tables d'import
             # ...
 ```
 
-| Nom                | Obligatoire (par défaut) | Type                                       |                                                                                         |
-| ------------------ | ------------------------ | ------------------------------------------ | --------------------------------------------------------------------------------------- |
-| `target`           | ✅                       | string                                     | Nom de la table cible de l'application                                                  |
-| `strategy`         | ➖ (`insert_or_update`)  | Voir [strategy](#strategy)                 | Stratégie de copie                                                                      |
-| `strategy_options` | ➖                       | Voir [strategy_options](#strategy_options) |                                                                                         |
-| `mapping`          | ✅                       | Voir [mapping](#mapping)                   | Tableau mettant en relation les colonnes de la table d'import et celle de l'application |
+| Name               | Mandatory (default)    | Type                                       |                                                                                                     |
+|--------------------|------------------------| ------------------------------------------ |-----------------------------------------------------------------------------------------------------|
+| `target`           | ✅                      | string                                     | Name of the application's target table                                                              |
+| `strategy`         | ➖ (`insert_or_update`) | Voir [strategy](#strategy)                 | Copy strategy                                                                                       |
+| `strategy_options` | ➖                      | Voir [strategy_options](#strategy_options) |                                                                                                     |
+| `mapping`          | ✅                      | Voir [mapping](#mapping)                   | Table showing the relationship between the columns in the import table and those in the application |
 
 ## strategy
 
-Trois stratégies sont disponibles :
+Three strategies are available:
 
-| Nom              | SGBD supportés         | Comportement                                                                                                                             |
-| ---------------- | ---------------------- | ---------------------------------------------------------------------------------------------------------------------------------------- |
-| insert           | MySQL, PostgreSQL 9.4+ | Stratégie la plus simple, exécute `INSERT INTO ... SELECT ...`. Ne gère pas les contraintes `NOT NULL` ou `UNIQUE`.                      |
-| insert_ignore    | MySQL, PostgreSQL 9.5+ | Ignore les lignes en conflit                                                                                                             |
-| insert_or_update | MySQL, PostgreSQL 9.5+ | Exécute un `UPDATE` en cas de conflit. Utilise `INSERT ... ON DUPLICATE KEY` en MySQL et `INSERT ... ON CONLICT DO UPDATE` en PostgreSQL |
+| Name              | Supported DBMS         | Behaviour                                                                                                                                          |
+| ---------------- | ---------------------- |----------------------------------------------------------------------------------------------------------------------------------------------------|
+| insert           | MySQL, PostgreSQL 9.4+ | The simplest strategy is to execute `INSERT INTO ... SELECT ...`. Does not handle `NOT NULL` or `UNIQUE` constraints.                              |
+| insert_ignore    | MySQL, PostgreSQL 9.5+ | Ignores conflicting lines                                                                                                                          |
+| insert_or_update | MySQL, PostgreSQL 9.5+ | Executes an `UPDATE` in the event of a conflict. Uses `INSERT ... ON DUPLICATE KEY` in MySQL and `INSERT ... ON CONLICT DO UPDATE` in PostgreSQL   |
 
 ## strategy_options
 
@@ -43,13 +43,13 @@ Trois stratégies sont disponibles :
             non_updateable_fields: ["email", "username"]
 ```
 
-| Nom                     | Obligatoire (par défaut) | Type     |                                                                                                                                                                                                                                                                                       |
-| ----------------------- | ------------------------ | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `copy_condition`        | ➖                       | string   | Condition SQL à insérer dans la requête d'insertion (omettre `WHERE`)                                                                                                                                                                                                                 |
-| `distinct`              | ➖ (`false`)             | boolean  | Insère `DISTINCT` dans la requête de sélection                                                                                                                                                                                                                                        |
-| `joins`                 | ➖                       | string   | Jointures SQL à insérer dans la requête de sélection                                                                                                                                                                                                                                  |
-| `conflict_target`       | ➖                       | string   | (PostgreSQL ET `strategy=insert_or_update&#124;insert_ignore`uniquement, obligatoire si `strategy=insert_or_update`). Index(es) de colonne(s) à utiliser dans `ON CONFLICT`, voir [documentation PostgreSQL](https://www.postgresql.org/docs/current/sql-insert.html#SQL-ON-CONFLICT) |
-| `non_updateable_fields` | ➖ (`[]`)                | string[] | Liste de champs à ne pas mettre à jour lors des imports                                                                                                                                                                                                                               |
+| Name                     | Mandatory (default)   | Type       |                                                                                                                                                                                                                                                                                 |
+| ----------------------- |-----------------------|------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `copy_condition`        | ➖                     | string     | SQL condition to insert in the insertion query (omit `WHERE`)                                                                                                                                                                                                                   |
+| `distinct`              | ➖ (`false`)           | boolean    | Inserts `DISTINCT` in the selection query                                                                                                                                                                                                                                       |
+| `joins`                 | ➖                     | string     | SQL joins to be inserted in the selection query                                                                                                                                                                                                                                 |
+| `conflict_target`       | ➖                     | string     | (PostgreSQL AND `strategy=insert_or_update&#124;insert_ignore` only, mandatory if `strategy=insert_or_update`). Column index(es) to be used in `ON CONFLICT`, see [PostgreSQL documentation](https://www.postgresql.org/docs/current/sql-insert.html#SQL-ON-CONFLICT)           |
+| `non_updateable_fields` | ➖ (`[]`)              | string[]   | List of fields not to be updated during imports                                                                                                                                                                                                                                 |
 
 ## mapping
 
@@ -79,9 +79,9 @@ Trois stratégies sont disponibles :
                 sql: "'token_bidon'"
 ```
 
-| Nom          | Obligatoire (par défaut) | Type                   |                                                                       |
-| ------------ | ------------------------ | ---------------------- | --------------------------------------------------------------------- |
-| `<name>`     | ✅                       |                        | Remplacer `<name>` par le nom de la colonne à créer                   |
-| `property`   | ➖                       | string[] &#124; string | Liste des colonnes de l'application dans lesquelles insérer la donnée |
-| `sql`        | ➖ (`null`)              | boolean                | Déclaration SQL de la valeur à insérer dans la colonne cible          |
-| `update_sql` | ➖ (`null`)              | string                 | Déclaration SQL `UPDATE` #FIXME                                       |
+| Name         | Mandatory (default)   | Type                   |                                                                         |
+|--------------|-----------------------| ---------------------- |-------------------------------------------------------------------------|
+| `<name>`     | ✅                     |                        | Replace `<name>` with the name of the column to be created              |
+| `property`   | ➖                     | string[] &#124; string | List of columns in the application in which to insert the data          |
+| `sql`        | ➖ (`null`)            | boolean                | SQL statement of the value to be inserted in the target column          |
+| `update_sql` | ➖ (`null`)            | string                 | SQL statement `UPDATE                                                   |

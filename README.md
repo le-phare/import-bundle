@@ -1,15 +1,14 @@
 # Le Phare Import Bundle
 
-Ce bundle fournit un moyen d'importer des fichiers CSV (ainsi que des fichiers XLS ou texte) dans une base de données
-MySQL ou PostgreSQL.
+This bundle provides a way of importing CSV files (as well as XLS or text files) into a MySQL or PostresSQL database.
 
-## Sommaire
+## Contents
 
-- [Installation](docs/install.md)
+- [Install](docs/install.md)
 - [Configuration](docs/configure.md)
-    - [Chargement](docs/configure/load.md)
-    - [Copie](docs/configure/copy.md)
-- [Utilisation](docs/usage.md)
-- [Processus d'exécution](docs/process.md)
-- [Événements](docs/events.md)
-- [Fonctionnalités](docs/features.md)
+    - [Load](docs/configure/load.md)
+    - [Copy](docs/configure/copy.md)
+- [Usage](docs/usage.md)
+- [Process](docs/process.md)
+- [Events](docs/events.md)
+- [Features](docs/features.md)

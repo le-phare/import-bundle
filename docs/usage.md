@@ -1,8 +1,8 @@
-# Utilisation
+# Usage
 
-## Exécution d'un import
+## Performing an import
 
-La commande d'import est la suivante :
+The import command is as follows:
 
 ```shell
 php bin/console lephare:import [--no-load] [--] <config>
@@ -10,7 +10,7 @@ php bin/console lephare:import [--no-load] [--] <config>
 
 Exemple : `php bin/console lephare:import config/import/my_import.yaml`
 
-## Création d'un import
+## Creating an import
 
 Depuis Faros NG 2.5 il existe une commande utilisant Symfony Maker pour créer un fichier de configuration d'import à
 partir d'un fichier CSV d'exemple.

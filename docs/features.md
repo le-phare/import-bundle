@@ -1,29 +1,29 @@
-# Fonctionnalités
+# Features
 
-## Validation des entêtes
+## Header validation
 
-Uniquement disponible si `format = csv`.
+Only available if `format = csv`.
 
-Valide que les champs déclarés dans la configuration YAML sont identiques à ceux du fichier CSV, ainsi que dans le même
-ordre.
+Validates that the fields declared in the YAML configuration are identical to those in the CSV file, and in the same
+order.
 
-## Archivage
+## Archiving
 
-L'archivage est activé par défaut.
+Archiving is enabled by default.
 
-Au terme d'un import, les fichiers importés sont déplacés dans le dossier d'archivage (`<source_dir>/archives/<date>`
-par défaut). Seuls les 30 derniers dossiers sont conservés par défaut.
+When an import is complete, the imported files are moved to the archive folder (`<source_dir>/archives/<date>`
+by default). By default, only the last 30 folders are kept.
 
-## Quarantaine
+## Quarantine
 
-La quarantaine est activée par défaut.
+Quarantine is enabled by default.
 
-Si une exception est levée lors d'un import, tous les fichiers d'import chargés par au moins une ressource[^1] sont
-déplacés dans le dossier de quarantaine (`<source_dir>/quarantine/<date>` par défaut). Seuls les 30 derniers dossiers
-sont conservés par défaut.
+If an exception is raised during an import, all import files loaded by at least one resource[^1] are
+moved to the quarantine folder (`<source_dir>/quarantine/<date>` by default). Only the last 30 folders
+are kept by default.
 
-## Support Excel
+## Excel support
 
-Le support des fichiers .XLS nécessite l'installation du paquet Composer `phpoffice/phpspreadsheet`
+Support for .XLS files requires installation of the Composer package `phpoffice/phpspreadsheet`.
 
-[^1]: Les ressources ne comprenant pas de configuration `load` sont ignorées.
+[^1]: Resources without a `load` configuration are ignored.

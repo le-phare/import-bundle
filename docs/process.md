@@ -1,4 +1,4 @@
-# Processus d'exécution
+# Process
 
 ```mermaid
 flowchart TB
@@ -9,18 +9,18 @@ flowchart TB
     ImportCopy["Import::copy()"] -- PRE_COPY\n\nPOST_COPY\n\nPOST_EXECUTE --> test(((x)))
 ```
 
-## Initialisation
+## Init
 
-Appelé par `Import::init()`. Charge et valide le fichier de configuration.
+Called by `Import::init()`. Loads and validates the configuration file.
 
-## Exécution
+## Exec
 
-`Import::execute()`. Charge et copie les ressources.
+Import::execute()`. Loads and copies resources.
 
-## Chargement
+## Load
 
-Boucle sur chaque ressource chargeable et charge leurs données dans des tables temporaires.
+Loops over each loadable resource and loads their data into temporary tables.
 
-## Copie
+## Copy
 
-Boucle sur chaque ressource copiable et copie leurs données des tables temporaires vers les tables cibles.
+Loops over each copyable resource and copies their data from the temporary tables to the target tables.

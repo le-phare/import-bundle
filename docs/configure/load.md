@@ -1,7 +1,7 @@
-# Charger les données
+# Load data
 
-Le processus de chargement ("load") permet de charger un ou plusieurs fichiers de données dans des tables temporaires.
-Ces tables sont dites temporaires, car elles sont créées au début du processus d'importation.
+The load process is used to load one or more data files into temporary tables.
+These tables are called temporary because they are created at the start of the import process.
 
 ```yaml
 <name>:
@@ -20,17 +20,17 @@ Ces tables sont dites temporaires, car elles sont créées au début du processu
         indexes: [id, email]
 ```
 
-| Nom                    | Obligatoire (par défaut)   | Type                                                   |                                                                                                                                               |
-| ---------------------- | -------------------------- | ------------------------------------------------------ | --------------------------------------------------------------------------------------------------------------------------------------------- |
-| `pattern`              | ✅                         | string                                                 | Regex des noms de fichier à traiter                                                                                                           |
-| `add_file_line_number` | ➖ (`true`)                | boolean                                                | (`format = csv` uniquement). Copie en plus des autres champs un champ `file_line_no` qui contient le numéro de ligne du fichier d'import.[^1] |
-| `format`               | ➖ (`csv`)                 | `csv`&#124;`text`&#124;`xls`                           | Format des fichiers. `text` n'est supporté que sur PostgreSQL. Pour `xls`, voir [Support Excel](../features.md#support-excel).                |
-| `format_options`       | ➖                         | Voir [format_options](#format_options)                 | Options de formatage. N'est utile que pour `format=csv`.                                                                                      |
-| `loop`                 | ➖ (`false`)               | boolean                                                | Charger tous les fichiers, sinon uniquement le premier                                                                                        |
-| `strategy`             | ➖ (`load_alphabetically`) | Voir [strategy](#strategy)                             | Stratégie de tri des fichiers à charger                                                                                                       |
-| `fields`               | ✅                         | Voir [fields et extra_fields](#fields-et-extra_fields) | Champs à copier du fichier d'import vers la table d'import.                                                                                   |
-| `extra_fields`         | ✅                         | Voir [fields et extra fields](#fields-et-extra_fields) | Champs supplémentaires à créer dans la table d'import.                                                                                        |
-| `indexes`              | ➖                         | string[]                                               | Liste d'indexes à créer dans la table d'import                                                                                                |
+| Name                   | Mandatory (default)       | Type                                                      |                                                                                                                                               |
+|------------------------|---------------------------|-----------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------|
+| `pattern`              | ✅                         | string                                                    | Regex of file names to be processed                                                                                                           |
+| `add_file_line_number` | ➖ (`true`)                | boolean                                                   | (`format = csv` only). Copies, in addition to the other fields, a `file_line_no` field which contains the line number of the import file.[^1] |
+| `format`               | ➖ (`csv`)                 | `csv`&#124;`text`&#124;`xls`                              | File format: `text` is only supported on PostgreSQL. For `xls`, see [Excel Support](../features.md#support-excel).                            |
+    | `format_options`       | ➖                         | Voir [format_options](#format_options)                | Formatting options. Only useful for `format=csv`.                                                                                             |
+| `loop`                 | ➖ (`false`)               | boolean                                                   | Load all files, otherwise only the first one                                                                                                  |
+| `strategy`             | ➖ (`load_alphabetically`) | Voir [strategy](#strategy)                                | Upload file sorting strategy                                                                                                                  |
+| `fields`               | ✅                         | Voir [fields et extra_fields](#fields-et-extra_fields)    | Fields to be copied from the import file to the import table.                                                                                 |
+| `extra_fields`         | ✅                         | Voir [fields et extra fields](#fields-et-extra_fields)    | Additional fields to be created in the import table.                                                                                          |
+| `indexes`              | ➖                         | string[]                                                  | List of indexes to create in the import table                                                                                                 |
 
 ## format_options
 
@@ -50,35 +50,35 @@ Ces tables sont dites temporaires, car elles sont créées au début du processu
             pgsql_format: "csv"
 ```
 
-| Nom                | Obligatoire (par défaut) | Type    | `format`(s) supportés |                                                                                                                                                                      |
-| ------------------ | ------------------------ | ------- | --------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `with_header`      | ➖ (`true`)              | boolean | `csv`                 | Ignore les données présentes sur la 1ère ligne.                                                                                                                      |
-| `validate_headers` | ➖ (`true`)              | boolean | `csv`                 | Valide les entêtes CSV, voir [Validation des entêtes](../features.md#validation-des-entêtes).                                                                        |
-| `null_string`      | ➖                       | string  | `csv`                 | (PostgreSQL uniquement) Chaîne de caractère à considérer comme `NULL` en SQL, voir [documentation PostgreSQL](https://www.postgresql.org/docs/current/sql-copy.html) |
-| `field_delimiter`  | ➖ (`;`)                 | string  | Tous                  | Délimiteur de champs                                                                                                                                                 |
-| `quote_character`  | ➖ (`"`)                 | string  | `csv`                 | Caractère à considérer comme guillemets.                                                                                                                             |
-| `line_delimiter`   | ➖ (`\n`)                | string  | `csv`, `xls`          | (MySQL uniquement) Délimiteur de ligne.                                                                                                                              |
-| `escape_character` | ➖ (`\\`)                | string  | `csv`                 | Caractère d'échappement, voir [documentation PostgreSQL](https://www.postgresql.org/docs/current/sql-copy.html).                                                     |
+| Name                | Mandatory (default)   | Type    | `format`(s) supportés |                                                                                                                                                             |
+| ------------------ |-----------------------| ------- |-----------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `with_header`      | ➖ (`true`)            | boolean | `csv`                 | Ignores data on the 1st line.                                                                                                                               |
+| `validate_headers` | ➖ (`true`)            | boolean | `csv`                 | Validates CSV headers, see [Header validation](../features.md#header-validation).                                                                           |
+| `null_string`      | ➖                     | string  | `csv`                 | (PostgreSQL only) Character string to be considered as `NULL` in SQL, see [PostgreSQL documentation](https://www.postgresql.org/docs/current/sql-copy.html) |
+| `field_delimiter`  | ➖ (`;`)               | string  | All                   | Field delimiter                                                                                                                                             |
+| `quote_character`  | ➖ (`"`)               | string  | `csv`                 | Character to be treated as inverted commas.                                                                                                                 |
+| `line_delimiter`   | ➖ (`\n`)              | string  | `csv`, `xls`          | (MySQL only) Line delimiter.                                                                                                                                |
+| `escape_character` | ➖ (`\\`)              | string  | `csv`                 | Escape character, see [PostgreSQL documentation](https://www.postgresql.org/docs/current/sql-copy.html).                                                    |
 
-## Options inutilisées
+## Unused options
 
-| Nom            | Obligatoire (par défaut) | Type    | `format`(s) supportés |                                          |
-| -------------- | ------------------------ | ------- | --------------------- | ---------------------------------------- |
-| `sheet_index`  | ➖ (`0`)                 | integer | `xls`                 | Index de la feuille de tableur à charger |
-| `pgsql_format` | ➖ (`csv`)               | string  | `xls`                 | Format de copie de données PostgreSQL    |
+| Name            | Mandatory (default) | Type    | `format`(s) supportés |                                          |
+| -------------- | ------------------------ | ------- | --------------------- |------------------------------------------|
+| `sheet_index`  | ➖ (`0`)                 | integer | `xls`                 | Index of the spreadsheet to be loaded |
+| `pgsql_format` | ➖ (`csv`)               | string  | `xls`                 | PostgreSQL data copy format    |
 
 ## strategy
 
-| Nom                           | Description                                                                            |
+| Name                           | Description                                                                            |
 | ----------------------------- | -------------------------------------------------------------------------------------- |
-| `load_alphabetically`         | (Anciennement `first_by_name`) Charge les fichiers dans l'ordre alphabétique           |
-| `load_reverse_alphabetically` | (Anciennement `last_by_name`) Charge les fichiers dans l'ordre alphabétique inversé    |
-| `load_newest_first`           | Charge les fichiers du plus récent au plus vieux selon leur date de changement (ctime) |
-| `load_oldest_first`           | Charge les fichiers du plus vieux au plus récent selon leur date de changement (ctime) |
+| `load_alphabetically`         | (Formerly `first_by_name`) Loads files in alphabetical order           |
+| `load_reverse_alphabetically` | (Formerly `last_by_name`) Loads files in reverse alphabetical order    |
+| `load_newest_first`           | Loads files from the most recent to the oldest according to their date of change (ctime) |
+| `load_oldest_first`           | Loads files from oldest to newest by date of change (ctime) |
 
 ## fields et extra_fields
 
-`fields` et `extra_fields` ont la même structure.
+`fields` and `extra_fields` have the same structure.
 
 ```yaml
 <name>:
@@ -92,7 +92,7 @@ Ces tables sont dites temporaires, car elles sont créées au début du processu
                     default: now()
 ```
 
-Ces 2 syntaxes sont équivalentes :
+These 2 syntaxes are equivalent:
 
 ```yaml
             <field_1_name>: ~
@@ -103,19 +103,19 @@ Ces 2 syntaxes sont équivalentes :
                     notnull: false
 ```
 
-Syntaxe raccourcie :
+Shortened syntax :
 
-| Nom            | Obligatoire (par défaut) | Type   |                                                                                       |
-| -------------- | ------------------------ | ------ | ------------------------------------------------------------------------------------- |
-| `<field_name>` | ✅ (`string`)            | string | Remplacer `<field_name>` par le nom du champ. La valeur doit être un type DBAL valide |
+| Name           | Mandatory (default)   | Type   |                                                                                       |
+|----------------|-----------------------| ------ | ------------------------------------------------------------------------------------- |
+| `<field_name>` | ✅ (`string`)          | string | Replace `<field_name>` with the name of the field. The value must be a valid DBAL type |
 
-Syntaxe classique :
+Classic syntax :
 
-| Nom            | Obligatoire (par défaut) | Type   |                        |
-| -------------- | ------------------------ | ------ | ---------------------- |
-| `<field_name>` | ✅                       | string |                        |
-| `type`         | ➖ (`string`)            | string | Type DBAL valide       |
-| `options`      | ➖ (`{notnull: false}`)  |        | Tableau d'options DBAL |
+| Name            | Mandatory (default)    | Type   |                         |
+| -------------- |------------------------| ------ |-------------------------|
+| `<field_name>` | ✅                      | string |                         |
+| `type`         | ➖ (`string`)           | string | Valid DBAL type         |
+| `options`      | ➖ (`{notnull: false}`) |        | DBAL options table      |
 
-[^1]: Problème connu : lorsque `add_file_line_number` = true et que le fichier importé contient des retours à la ligne
-dans une colonne (par exemple dans du html), les numéros de ligne sont insérés dans le contenu de la colonne importée.
+[^1]: Known issue: when `add_file_line_number` = true and the imported file contains line breaks
+in a column (for example in html), the line numbers are inserted into the content of the imported column.

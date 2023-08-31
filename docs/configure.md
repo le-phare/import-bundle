@@ -1,8 +1,8 @@
 # Configuration
 
-## Configuration du bundle
+## Bundle configuration
 
-Le bundle peut être configuré par un fichier YAML dans la configuration du projet Symfony (
+The bundle can be configured using a YAML file in the Symfony project configuration (
 ex: `config/packages/lephare_import.yaml`).
 
 ```yaml
@@ -12,11 +12,11 @@ lephare_import:
             <preset_name>: ["test@lephare.com", "test2@lephare.com"]
 ```
 
-Remplacer `<preset_name>` par le nom du paramétrage, suivi d'une liste d'emails.
+Replace `<preset_name>` with the name of the setting, followed by a list of emails.
 
-## Configuration d'un import
+## Configuring an import
 
-Un import est décrit par un fichier YAML.
+An import is described in a YAML file.
 
 ```yaml
 # config/import/my_import.yaml
@@ -42,44 +42,44 @@ resources:
 label: my_import
 ```
 
-| Nom            | Obligatoire (par défaut) | Type                               |                                                          |
-| -------------- | ------------------------ | ---------------------------------- | -------------------------------------------------------- |
-| `name`         | ✅                       | string                             | Nom de l'import                                          |
-| `log_dir`      | ➖ (`null`)              | ?string                            | Chemin vers le dossier où stocker les logs               |
-| `source_dir`   | ✅                       | string                             | Chemin vers le dossier contenant les fichiers à importer |
-| `archive`      | ➖                       | Voir [archive](#archive)           | Options d'archivage                                      |
-| `quarantine`   | ➖                       | Voir [quarantine](#quarantine)     | Options de mise en quarantine                            |
-| `email_report` | ➖                       | Voir [email_report](#email_report) | Options d'envoi d'email                                  |
-| `resources`    | ✅                       | Voir [resources](#resources)       | Liste de ressources                                      |
+| Name           | Mandatory (default)  | Type                              |                                                        |
+|----------------|----------------------|-----------------------------------|--------------------------------------------------------|
+| `name`         | ✅                    | string                            | Import name                                            |
+| `log_dir`      | ➖ (`null`)           | ?string                           | Path to the folder where the logs are stored           |
+| `source_dir`   | ✅                    | string                            | Path to the folder containing the files to be imported |
+| `archive`      | ➖                    | see [archive](#archive)           | Archiving options                                      |
+| `quarantine`   | ➖                    | see [quarantine](#quarantine)     | Quarantine options                                     |
+| `email_report` | ➖                    | see [email_report](#email_report) | Email sending options                                  |
+| `resources`    | ✅                    | see [resources](#resources)       | List of resources                                      |
 
-### Options dépréciées
+### Deprecated options
 
-| Nom                   | Obligatoire (par défaut) | Type    | Remplacement          |                                               |
-| --------------------- | ------------------------ | ------- | --------------------- | --------------------------------------------- |
-| `archive_rotation`    | ➖                       | integer | `archive.rotation`    | Nombre de dossiers d'archivage à conserver    |
-| `quarantine_rotation` | ➖                       | integer | `quarantine.rotation` | Nombre de dossiers de quarantaine à conserver |
+| Name                  | Mandatory (default) | Type    | Replacement           |                                        |
+|-----------------------|---------------------| ------- |-----------------------|----------------------------------------|
+| `archive_rotation`    | ➖                   | integer | `archive.rotation`    | Number of archiving files to be kept   |
+| `quarantine_rotation` | ➖                   | integer | `quarantine.rotation` | Number of quarantine files to be kept  |
 
 ### Options inutilisées
 
-| Nom     | Obligatoire (par défaut) | Type    |     |
-| ------- | ------------------------ | ------- | --- |
-| `label` | ➖ (`null`)              | ?string |     |
+| Name    | Mandatory (default)   | Type    |     |
+|---------|-----------------------| ------- | --- |
+| `label` | ➖ (`null`)            | ?string |     |
 
 ### archive
 
-| Nom        | Obligatoire (par défaut) | Type    |                                                                                       |
-| ---------- | ------------------------ | ------- | ------------------------------------------------------------------------------------- |
-| `dir`      | ➖ (`null`)              | ?string | Chemin vers le dossier où stocker les fichiers d'import en cas de mise en quarantaine |
-| `enabled`  | ➖ (`true`)              | boolean | Activer/désactiver l'archivage                                                        |
-| `rotation` | ➖ (`30`)                | integer | Nombre de dossiers d'archivage à conserver                                            |
+| Name        | Mandatory (default)    | Type    |                                                                             |
+| ---------- |------------------------| ------- |-----------------------------------------------------------------------------|
+| `dir`      | ➖ (`null`)             | ?string | Path to the folder where import files are stored in the event of quarantine |
+| `enabled`  | ➖ (`true`)             | boolean | Activate/deactivate archiving                                               |
+| `rotation` | ➖ (`30`)               | integer | Number of archiving files to be kept                                        |
 
 ### quarantine
 
-| Nom        | Obligatoire (par défaut) | Type    |                                                                                       |
-| ---------- | ------------------------ | ------- | ------------------------------------------------------------------------------------- |
-| `dir`      | ➖ (`null`)              | ?string | Chemin vers le dossier où stocker les fichiers d'import en cas de mise en quarantaine |
-| `enabled`  | ➖ (`true`)              | boolean | Activer/désactiver la quarantaine                                                     |
-| `rotation` | ➖ (`30`)                | integer | Nombre de dossiers de quarantaine à conserver                                         |
+| Name        | Mandatory (default)   | Type    |                                                                             |
+| ---------- |-----------------------| ------- |-----------------------------------------------------------------------------|
+| `dir`      | ➖ (`null`)            | ?string | Path to the folder where import files are stored in the event of quarantine |
+| `enabled`  | ➖ (`true`)            | boolean | Activate/deactivate quarantine                                              |
+| `rotation` | ➖ (`30`)              | integer | Number of quarantine files to be kept                                       |
 
 ### email_report
 
@@ -91,16 +91,16 @@ email_report:
     email_template: null
 ```
 
-| Nom               | Obligatoire (par défaut)                 | Type                   |                                               |
-| ----------------- | ---------------------------------------- | ---------------------- | --------------------------------------------- |
-| `email_from`      | ✅                                       | ?string                | Email de l'expéditeur                         |
-| `recipients`      | ➖ (`[]`)                                | string[] &#124; string | Email(s) du/des destinataire(s)               |
-| `subject_pattern` | ➖ (`[%status%] Import report : %name%`) | string                 | Objet du mail                                 |
-| `email_template`  | ➖ (`null`)                              | ?string                | Chemin vers un fichier Twig de modèle d'email |
+| Name               | Mandatory (default)                     | Type                   |                                     |
+| ----------------- |-----------------------------------------| ---------------------- |-------------------------------------|
+| `email_from`      | ✅                                       | ?string                | Sender's email address              |
+| `recipients`      | ➖ (`[]`)                                | string[] &#124; string | Email(s) of recipient(s)            |
+| `subject_pattern` | ➖ (`[%status%] Import report : %name%`) | string                 | Mail subject                        |
+| `email_template`  | ➖ (`null`)                              | ?string                | Path to a Twig email template file  |
 
 ### resources
 
-Une ressource peut charger et/ou copier des données.
+A resource can load and/or copy data.
 
 ```yaml
 <name>:
@@ -111,9 +111,9 @@ Une ressource peut charger et/ou copier des données.
         # ...
 ```
 
-| Nom         | Obligatoire (par défaut) | Type   |                                                                                                                            |
-| ----------- | ------------------------ | ------ | -------------------------------------------------------------------------------------------------------------------------- |
-| `<name>`    | ✅                       | string | Remplacer `<name>` par un nom de ressource                                                                                 |
-| `tablename` | ✅                       | string | Nom de la table temporaire créée pour l'import                                                                             |
-| `load`      | ✅                       |        | Décrit comment charger les données dans la table temporaire, voir [Charger les données](configure/load.md)                 |
-| `copy`      | ✅                       |        | Décrit comment copier les données de la table temporaire vers la table cible, voir [Copier les données](configure/copy.md) |
+| Name         | Mandatory (default)   | Type     |                                                                                                                  |
+| ----------- |-----------------------|----------|------------------------------------------------------------------------------------------------------------------|
+| `<name>`    | ✅                     | string   | Replace `<name>` with a resource name                                                                            |
+| `tablename` | ✅                     | string   | Name of the temporary table created for the import                                                               |
+| `load`      | ✅                     |          | Describes how to load data into the temporary table, see [Load data](docs/configure/load.md)                     |
+| `copy`      | ✅                     |          | Describes how to copy data from the temporary table to the target table, see [Copy data](docs/configure/copy.md) |
