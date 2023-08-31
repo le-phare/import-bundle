@@ -11,7 +11,7 @@
     ],
     "require": {
         "php": "^7.4|^8.0",
-        "lephare/import": "self.version",
+        "lephare/import": "dev-feature/open-source-faros-2.0",
         "monolog/monolog": "^2.0|^3.0",
         "symfony/framework-bundle": "^5.4|^6.0",
         "symfony/lock": "^5.4|^6.0",
