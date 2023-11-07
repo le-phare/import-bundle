@@ -6,7 +6,7 @@
 composer require lephare/import-bundle
 ```
 
-This command requires global installation of Composer or the presence of a spell.
+This command requires global installation of Composer or the presence of an alias.
 
 ## Second step : enable the bundle
 
