@@ -1,6 +1,6 @@
 # Le Phare Import Bundle
 
-This bundle provides a way of importing CSV files (as well as XLS or text files) into a MySQL or PostresSQL database.
+This bundle provides a way of importing CSV files (as well as XLS or text files) into a MySQL or PostgresSQL database.
 
 ## Contents
 
