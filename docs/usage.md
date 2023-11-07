@@ -12,7 +12,7 @@ Exemple : `php bin/console lephare:import config/import/my_import.yaml`
 
 ## Creating an import
 
-Depuis Faros NG 2.5 il existe une commande utilisant Symfony Maker pour créer un fichier de configuration d'import à
+Il existe une commande utilisant Symfony Maker pour créer un fichier de configuration d'import à
 partir d'un fichier CSV d'exemple.
 
 `php bin/console make:import [options] [<name>]`
