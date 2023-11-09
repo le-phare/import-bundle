@@ -12,12 +12,11 @@ Exemple : `php bin/console lephare:import config/import/my_import.yaml`
 
 ## Creating an import
 
-Il existe une commande utilisant Symfony Maker pour créer un fichier de configuration d'import à
-partir d'un fichier CSV d'exemple.
+This bundle includes a Symfony Maker command to create an import configuration file based on a CSV example file.
 
 `php bin/console make:import [options] [<name>]`
 
-Exemple avec un fichier `my_file.csv` :
+Example with `my_file.csv` :
 
 ```csv
 id,name
@@ -28,7 +27,7 @@ id,name
 php bin/console make:import my_import --source my_file.csv --csv-separator ","
 ```
 
-Génère ce fichier `config/import/my.import.yaml`
+Generates the file `config/import/my.import.yaml`
 
 ```yaml
 source_dir: "var/exchange/input"
