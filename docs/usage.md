@@ -8,7 +8,7 @@ The import command is as follows:
 php bin/console lephare:import [--no-load] [--] <config>
 ```
 
-Exemple : `php bin/console lephare:import config/import/my_import.yaml`
+Example: `php bin/console lephare:import config/import/my_import.yaml`
 
 ## Creating an import
 
@@ -16,7 +16,7 @@ This bundle includes a Symfony Maker command to create an import configuration f
 
 `php bin/console make:import [options] [<name>]`
 
-Example with `my_file.csv` :
+Example with `my_file.csv`:
 
 ```csv
 id,name
