@@ -40,10 +40,12 @@
         "symfony/config": "^5.4|^6.0|^7.0",
         "symfony/event-dispatcher": "^5.4|^6.0|^7.0",
         "symfony/mailer": "^5.4|^6.0|^7.0",
-        "symfony/maker-bundle": "^1.36"
+        "symfony/maker-bundle": "^1.36",
+        "symfony/twig-bridge": "^5.4|^6.0|^7.0"
     },
     "suggest": {
-        "symfony/mailer": "to enable support for email reports"
+        "symfony/mailer": "to enable support for email reports",
+        "symfony/twig-bridge": "to enable support for templated emails reports"
     },
     "minimum-stability": "dev",
     "prefer-stable": true
