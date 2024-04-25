@@ -34,7 +34,7 @@ class LePhareImportExtension extends Extension
 
         $container->setParameter('lephare_import.email_report.recipients', $config['email_report']['recipients']);
 
-        if (!$container->has(\Symfony\Component\Mailer\MailerInterface::class)) {
+        if (!class_exists(Mailer::class)) {
             $container->removeDefinition('lephare_import.email_report_subscriber');
         }
 
