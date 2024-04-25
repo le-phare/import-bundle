@@ -2,13 +2,14 @@
 
 namespace LePhare\ImportBundle\DependencyInjection;
 
-use LePhare\ImportBundle\DependencyInjection\Compiler\ImportLoaderPass;
 use LePhare\Import\Load\LoaderInterface;
 use LePhare\Import\LoadStrategy\LoadStrategyInterface;
+use LePhare\ImportBundle\DependencyInjection\Compiler\ImportLoaderPass;
 use Symfony\Component\Config\FileLocator;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\Loader;
 use Symfony\Component\HttpKernel\DependencyInjection\Extension;
+use Symfony\Component\Mailer\Mailer;
 
 /**
  * This is the class that loads and manages your bundle configuration.
