@@ -148,7 +148,7 @@ class EmailReportSubscriberTest extends TestCase
         $this->createSubscriber()->onPostExecute($event);
     }
 
-    public function provideEmails(): iterable
+    public static function provideEmails(): iterable
     {
         $f = Factory::create();
 
