@@ -17,7 +17,7 @@ class Configuration implements ConfigurationInterface
     {
         $treeBuilder = new TreeBuilder('lephare_import');
 
-        /** @var ArrayNodeDefinition */
+        /** @var ArrayNodeDefinition $rootNode */
         $rootNode = $treeBuilder->getRootNode();
 
         $rootNode

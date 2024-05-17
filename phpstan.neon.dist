@@ -9,4 +9,9 @@ parameters:
         - vendor/
         - node_modules/
         - Resources/
+    ignoreErrors:
+        -
+            message: '#Call to an undefined method Symfony\\Component\\Config\\Definition\\Builder\\NodeParentInterface::.+\(\)#'
+            paths:
+                - DependencyInjection/Configuration.php
     tmpDir: .phpstan.cache
