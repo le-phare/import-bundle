@@ -1,0 +1,13 @@
+{
+    "$schema": "https://raw.githubusercontent.com/googleapis/release-please/main/schemas/config.json",
+    "release-type": "php",
+    "include-component-in-tag": false,
+    "packages": {
+        ".": {
+            "changelog-path": "CHANGELOG.md",
+            "draft": true,
+            "package-name": "release-please-action",
+            "release-type": "php"
+        }
+    }
+}

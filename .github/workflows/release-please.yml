@@ -1,0 +1,38 @@
+name: Release
+
+on:
+  push:
+    branches:
+      - "master"
+
+env:
+  PHP_EXTENSIONS: "zip"
+  PHP_VERSION: "8.3"
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: write
+      pull-requests: write
+
+    if: github.ref == 'refs/heads/master'
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: "${{ env.PHP_VERSION }}"
+          extensions: "${{ env.PHP_EXTENSIONS }}"
+          tools: humbug/box
+
+      - name: Validate composer.json and composer.lock
+        run: composer validate --strict
+
+      - uses: google-github-actions/release-please-action@v4
+        id: create_release
+        with:
+          target-branch: master
