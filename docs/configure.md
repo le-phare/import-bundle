@@ -95,7 +95,7 @@ email_report:
 | ----------------- | ---------------------------------------- | ---------------------- | ---------------------------------------------------------------------------------- |
 | `email_from`      | ✅                                       | ?string                | Sender's email address                                                             |
 | `recipients`      | ➖ (`[]`)                                | string[] &#124; string | Email(s) of recipient(s) or preset name defined in bundle configuration            |
-| `subject_pattern` | ➖ (`[%status%] Import report : %name%`) | string                 | Email subject. Placeholders %name% and %status% are replaced automatically         |
+| `subject_pattern` | ➖ (`[%status%] Import report : %name%`) | string                 | Email subject. Placeholders `%name%` and `%status%` are replaced automatically         |
 | `email_template`  | ➖ (`null`)                              | ?string                | Path to a Twig email template file                                                 |
 
 ### Resources
