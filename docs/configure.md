@@ -65,7 +65,7 @@ label: my_import
 |---------|-----------------------| ------- | --- |
 | `label` | ➖ (`null`)            | ?string |     |
 
-### Archive
+### archive
 
 | Name        | Mandatory (default)    | Type    |                                                                             |
 | ---------- |------------------------| ------- |-----------------------------------------------------------------------------|
@@ -73,7 +73,7 @@ label: my_import
 | `enabled`  | ➖ (`true`)             | boolean | Activate/deactivate archiving                                               |
 | `rotation` | ➖ (`30`)               | integer | Number of archiving files to be kept                                        |
 
-### Quarantine
+### quarantine
 
 | Name        | Mandatory (default)   | Type    |                                                                             |
 | ---------- |-----------------------| ------- |-----------------------------------------------------------------------------|
@@ -91,12 +91,12 @@ email_report:
     email_template: null
 ```
 
-| Name              | Mandatory (default)                      | Type                   |                                                                                    |
-| ----------------- | ---------------------------------------- | ---------------------- | ---------------------------------------------------------------------------------- |
-| `email_from`      | ✅                                       | ?string                | Sender's email address                                                             |
-| `recipients`      | ➖ (`[]`)                                | string[] &#124; string | Email(s) of recipient(s) or preset name defined in bundle configuration            |
-| `subject_pattern` | ➖ (`[%status%] Import report : %name%`) | string                 | Email subject. Placeholders `%name%` and `%status%` are replaced automatically         |
-| `email_template`  | ➖ (`null`)                              | ?string                | Path to a Twig email template file                                                 |
+| Name              | Mandatory (default)                      | Type                   |                                                                                                  |
+| ----------------- | ---------------------------------------- | ---------------------- | ------------------------------------------------------------------------------------------------ |
+| `email_from`      | ✅                                       | ?string                | Sender's email address                                                                           |
+| `recipients`      | ➖ (`[]`)                                | string[] &#124; string | Email(s) of recipient(s) or preset name defined in [bundle configuration](#bundle-configuration) |
+| `subject_pattern` | ➖ (`[%status%] Import report : %name%`) | string                 | Email subject. Placeholders `%name%` and `%status%` are replaced automatically                   |
+| `email_template`  | ➖ (`null`)                              | ?string                | Path to a Twig email template file                                                               |
 
 ### Resources
 
