@@ -12,7 +12,7 @@ lephare_import:
             <preset_name>: ["test@lephare.com", "test2@lephare.com"]
 ```
 
-Replace `<preset_name>` with the name of the setting, followed by a list of emails.
+Import report recipients presets can be defined globally. Replace `<preset_name>` with the name of the setting, followed by a list of emails. Each import configuration will then be able to use a preset.
 
 ## Configuring an import
 
@@ -38,7 +38,7 @@ email_report:
 resources:
     # ...
 
-# Inutilisé
+# Unused
 label: my_import
 ```
 
@@ -59,7 +59,7 @@ label: my_import
 | `archive_rotation`    | ➖                   | integer | `archive.rotation`    | Number of archiving files to be kept   |
 | `quarantine_rotation` | ➖                   | integer | `quarantine.rotation` | Number of quarantine files to be kept  |
 
-### Options inutilisées
+### Unused options
 
 | Name    | Mandatory (default)   | Type    |     |
 |---------|-----------------------| ------- | --- |
@@ -86,21 +86,21 @@ label: my_import
 ```yaml
 email_report:
     email_from: import@lephare.com
-    recipients: lephare_import.email_report.recipients
-    subject_pattern: "[%status%] Rapport d'import my_import"
+    recipients: <preset_name>
+    subject_pattern: "[%status%] Import report : %name%"
     email_template: null
 ```
 
-| Name               | Mandatory (default)                     | Type                   |                                     |
-| ----------------- |-----------------------------------------| ---------------------- |-------------------------------------|
-| `email_from`      | ✅                                       | ?string                | Sender's email address              |
-| `recipients`      | ➖ (`[]`)                                | string[] &#124; string | Email(s) of recipient(s)            |
-| `subject_pattern` | ➖ (`[%status%] Import report : %name%`) | string                 | Mail subject                        |
-| `email_template`  | ➖ (`null`)                              | ?string                | Path to a Twig email template file  |
+| Name              | Mandatory (default)                      | Type                   |                                                                                                  |
+| ----------------- | ---------------------------------------- | ---------------------- | ------------------------------------------------------------------------------------------------ |
+| `email_from`      | ✅                                       | ?string                | Sender's email address                                                                           |
+| `recipients`      | ➖ (`[]`)                                | string[] &#124; string | Email(s) of recipient(s) or preset name defined in [bundle configuration](#bundle-configuration) |
+| `subject_pattern` | ➖ (`[%status%] Import report : %name%`) | string                 | Email subject. Placeholders `%name%` and `%status%` are replaced automatically                   |
+| `email_template`  | ➖ (`null`)                              | ?string                | Path to a Twig email template file                                                               |
 
-### resources
+### Resources
 
-A resource can load and/or copy data.
+A resource can load and/or copy data. An import can define one or more resources to be imported sequentially.
 
 ```yaml
 <name>:
