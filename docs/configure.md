@@ -115,5 +115,5 @@ A resource can load and/or copy data. An import can define one or more resources
 | ----------- |-----------------------|----------|------------------------------------------------------------------------------------------------------------------|
 | `<name>`    | ✅                     | string   | Replace `<name>` with a resource name                                                                            |
 | `tablename` | ✅                     | string   | Name of the temporary table created for the import                                                               |
-| `load`      | ✅                     |          | Describes how to load data into the temporary table, see [Load data](docs/configure/load.md)                     |
-| `copy`      | ✅                     |          | Describes how to copy data from the temporary table to the target table, see [Copy data](docs/configure/copy.md) |
+| `load`      | ✅                     |          | Describes how to load data into the temporary table, see [Load data](configure/load.md)                     |
+| `copy`      | ✅                     |          | Describes how to copy data from the temporary table to the target table, see [Copy data](configure/copy.md) |
