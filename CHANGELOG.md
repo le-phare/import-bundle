@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file.
 
+## [2.1.2](https://github.com/le-phare/import-bundle/compare/v2.1.1...v2.1.2) (2025-01-10)
+
+
+### Bug Fixes
+
+* **docs:** Update configure.md load and copy documentation links ([#21](https://github.com/le-phare/import-bundle/issues/21)) ([a67c861](https://github.com/le-phare/import-bundle/commit/a67c86188b2846c1d59bc09e3304f25bfb7a8ad5))
+
 ## [2.1.1](https://github.com/le-phare/import-bundle/compare/v2.1.0...v2.1.1) (2024-05-21)
 
 
