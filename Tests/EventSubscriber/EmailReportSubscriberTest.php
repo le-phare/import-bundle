@@ -79,7 +79,7 @@ class EmailReportSubscriberTest extends TestCase
         return new ArrayCollection(
             $this->configProcessor->processConfiguration(
                 new ImportConfiguration(),
-                ['lephare_import' => $config]
+                ['le_phare_import' => $config]
             )
         );
     }
