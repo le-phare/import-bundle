@@ -3,10 +3,10 @@
 ## Bundle configuration
 
 The bundle can be configured using a YAML file in the Symfony project configuration (
-ex: `config/packages/lephare_import.yaml`).
+ex: `config/packages/le_phare_import.yaml`).
 
 ```yaml
-lephare_import:
+le_phare_import:
     email_report:
         recipients:
             <preset_name>: ["test@lephare.com", "test2@lephare.com"]
