@@ -2,6 +2,30 @@
 
 All notable changes to this project will be documented in this file.
 
+## [2.3.0](https://github.com/le-phare/import-bundle/compare/v2.2.0...v2.3.0) (2025-03-27)
+
+
+### Features
+
+* **skeleton:** add json schema ([e8f9bac](https://github.com/le-phare/import-bundle/commit/e8f9bac0e64a9794586c5fd4efd26a344579b5bf))
+
+
+### Bug Fixes
+
+* **docs:** Update configure.md load and copy documentation links ([#21](https://github.com/le-phare/import-bundle/issues/21)) ([a67c861](https://github.com/le-phare/import-bundle/commit/a67c86188b2846c1d59bc09e3304f25bfb7a8ad5))
+* **release-please:** Rename release-please-manifest.json to .release-please-manifest.json ([75eeeb2](https://github.com/le-phare/import-bundle/commit/75eeeb250960d31eb1b803ce07de004b336d5138))
+* **services:** email reports are enabled if symfony mailer is installed ([552e23d](https://github.com/le-phare/import-bundle/commit/552e23d53012c391732fce0e15114ddbd3ca3782))
+
+
+### Miscellaneous Chores
+
+* **actions:** add release please workflow ([#10](https://github.com/le-phare/import-bundle/issues/10)) ([508e8cd](https://github.com/le-phare/import-bundle/commit/508e8cd54800fdb35403416907e9e9b010556faf))
+* **actions:** add test github action ([#9](https://github.com/le-phare/import-bundle/issues/9)) ([234e95f](https://github.com/le-phare/import-bundle/commit/234e95f7d31e57a4ce7489f357fc2bb2d0616227))
+* **composer:** add missing require dev dependencies ([5647fe2](https://github.com/le-phare/import-bundle/commit/5647fe26b7ce13535b54f266ee1ed8c33ac1ee59))
+* **composer:** allow Symfony 7 ([#4](https://github.com/le-phare/import-bundle/issues/4)) ([f787192](https://github.com/le-phare/import-bundle/commit/f787192f8a04de6cefbd9fd65f8addaecf68d5e5))
+* **master:** release 2.1.1 ([#12](https://github.com/le-phare/import-bundle/issues/12)) ([05bf9c1](https://github.com/le-phare/import-bundle/commit/05bf9c12882c113b7f32a13b2b6f40599043b46d))
+* **master:** release 2.2.0 ([574d044](https://github.com/le-phare/import-bundle/commit/574d044d9e67f7c0cd2a20cadee442619ee66edc))
+
 ## [2.2.0](https://github.com/le-phare/import-bundle/compare/v2.1.1...v2.2.0) (2025-03-27)
 
 
