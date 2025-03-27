@@ -1,6 +1,7 @@
 # IDE Integration
 
 Beyond validating YAML syntax in your IDE, you can validate the definition of an import configuration using the JSON schema https://raw.githubusercontent.com/le-phare/import/refs/heads/master/lephare-import.schema.json.
+You could also use a tagged version in case of future breaking changes.
 
 This also provides contextual help for autocompletion and key hover.
 ## Language Server
