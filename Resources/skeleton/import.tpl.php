@@ -1,3 +1,4 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/le-phare/import/refs/heads/master/lephare-import.schema.json
 source_dir: "var/exchange/input"
 name: <?= $name; ?>
 
