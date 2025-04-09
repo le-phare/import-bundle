@@ -31,7 +31,7 @@ class CredentialsConfigurationPass implements CompilerPassInterface
                 '%s://%s:%s@%s:%s/%s%s',
                 str_replace('pdo_', '', $credentials['driver']),
                 $credentials['user'],
-                $credentials['password'],
+                urlencode($credentials['password']),
                 $credentials['host'],
                 $credentials['port'],
                 $credentials['dbname'],
