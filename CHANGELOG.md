@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file.
 
+## [2.2.1](https://github.com/le-phare/import-bundle/compare/v2.2.0...v2.2.1) (2025-04-11)
+
+
+### Bug Fixes
+
+* doctrine.dbal.url must be optional ([#29](https://github.com/le-phare/import-bundle/issues/29)) ([379d6a4](https://github.com/le-phare/import-bundle/commit/379d6a4dbf9a015791b9d419bee65398269b56cf))
+
 ## [2.2.0](https://github.com/le-phare/import-bundle/compare/v2.1.1...v2.2.0) (2025-03-27)
 
 
