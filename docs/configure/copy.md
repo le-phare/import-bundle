@@ -88,3 +88,23 @@ Three strategies are available:
 | `property`   | ➖                     | string[] &#124; string | List of columns in the application in which to insert the data          |
 | `sql`        | ➖ (`null`)            | boolean                | SQL statement of the value to be inserted in the target column          |
 | `update_sql` | ➖ (`null`)            | string                 | SQL statement `UPDATE                                                   |
+
+## ⚠️ Prevent database sequence incrementation
+
+By default, when performing an import, each row will trigger an auto-increment on the `target` table. 
+
+This can cause issues with recurring imports: running the same import multiple times will cause the ID sequence to increment for each row, even though no new insertion is actually made.
+
+To prevent this, you should add a join statement on the existing table to retrieve the existing id.
+
+```yaml
+strategy_options:
+    joins: LEFT JOIN my_table current ON current.code = temp.code
+```
+
+```yaml
+mapping:
+    id:
+        property: id
+        sql: COALESCE(current.id, nextval('my_table_id_seq'))
+```
