@@ -89,7 +89,7 @@ Three strategies are available:
 | `sql`        | ➖ (`null`)            | boolean                | SQL statement of the value to be inserted in the target column          |
 | `update_sql` | ➖ (`null`)            | string                 | SQL statement `UPDATE                                                   |
 
-## :warning: Handling database ID's without incrementing sequence
+## ⚠️ Prevent database sequence incrementation
 
 By default, when performing an import, each row will trigger an auto-increment on the `target` table. 
 
