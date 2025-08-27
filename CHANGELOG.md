@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file.
 
+## [2.2.2](https://github.com/le-phare/import-bundle/compare/v2.2.1...v2.2.2) (2025-08-27)
+
+
+### Bug Fixes
+
+* **deprecation:** fix deprecated usage of HttpKernel Extension ([#37](https://github.com/le-phare/import-bundle/issues/37)) ([314cf61](https://github.com/le-phare/import-bundle/commit/314cf6149a0870b09fbcfcf12ee622dab0f85ab6))
+
 ## [2.2.1](https://github.com/le-phare/import-bundle/compare/v2.2.0...v2.2.1) (2025-04-11)
 
 
