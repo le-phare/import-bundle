@@ -81,7 +81,7 @@ label: my_import
 | `dir`       | ➖ (`null`)          | ?string | Path to the folder where import files are stored in the event of quarantine |
 | `enabled`   | ➖ (`true`)          | boolean | Activate/deactivate quarantine                                              |
 | `rotation`  | ➖ (`30`)            | integer | Number of quarantine files to be kept                                       |
-| `unit_work` | ➖ (`false`)         | boolean | If true, only the file that caused the exception will be quarantined        |
+| `unit_work` | ➖ (`false`)         | boolean | If true, only the file that caused the exception will be quarantined. This option was added in `lephare/import` v2.4.0.        |
 
 ### email_report
 
