@@ -9,6 +9,8 @@ use LePhare\ImportBundle\DependencyInjection\Compiler\ImportLoaderPass;
 return static function (ContainerConfigurator $containerConfigurator): void {
     $services = $containerConfigurator->services();
 
+    $services->set('lephare_import.connection_registry', \LePhare\ImportBundle\Connection\ConnectionRegistry::class);
+
     $services->set('lephare.import', \LePhare\Import\Import::class)
         ->public()
         ->tag('monolog.logger', ['channel' => 'import'])
@@ -23,6 +25,8 @@ return static function (ContainerConfigurator $containerConfigurator): void {
     $services->set('lephare_import.command', \LePhare\ImportBundle\Command\ImportCommand::class)
         ->arg('$import', service(\LePhare\Import\ImportInterface::class))
         ->arg('$lockFactory', service('lock.default.factory'))
+        ->arg('$connectionRegistry', service('lephare_import.connection_registry'))
+        ->arg('$container', service('service_container'))
         ->tag('console.command');
 
     $services->set('lephare_import.configuration', \LePhare\Import\ImportConfiguration::class)

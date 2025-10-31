@@ -1,0 +1,33 @@
+#!/bin/sh
+
+_run() {
+    docker run --rm -it \
+    -v="$(pwd):$(pwd)" \
+    -v "${COMPOSER_HOME:-$HOME/.composer}:/tmp/composer" \
+    -e "COMPOSER_HOME=/tmp/composer" \
+    -e "XDEBUG_MODE"=${XDEBUG_MODE} \
+    -w="$(pwd)" \
+    -u="$(id -u)" "$@"
+}
+
+php() {
+    _run lephare/php:${PHP_VERSION:-7.4} php "$@"
+}
+
+composer() {
+    _run lephare/php:${PHP_VERSION:-7.4} php -d memory_limit=2G /usr/local/bin/composer "$@"
+}
+
+phpunit() {
+    _run lephare/php:${PHP_VERSION:-7.4} php -d xdebug.mode=coverage vendor/bin/phpunit "$@"
+}
+
+phpstan() {
+    _run lephare/php:${PHP_VERSION:-7.4} php -d xdebug.mode=coverage vendor/bin/phpstan "$@"
+}
+
+php-cs-fixer () {
+    _run lephare/php:${PHP_VERSION:-7.4} php -d xdebug.mode=coverage vendor/bin/php-cs-fixer "$@"
+}
+
+echo _run php composer phpunit phpstan php-cs-fixer
