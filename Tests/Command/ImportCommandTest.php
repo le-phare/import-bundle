@@ -20,7 +20,7 @@ use Symfony\Component\Console\Output\NullOutput;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 use Symfony\Component\EventDispatcher\EventDispatcherInterface;
 use Symfony\Component\Lock\LockFactory;
-use Symfony\Component\Lock\LockInterface;
+use Symfony\Component\Lock\SharedLockInterface;
 
 /**
  * @covers \LePhare\ImportBundle\Command\ImportCommand
@@ -36,7 +36,7 @@ class ImportCommandTest extends TestCase
     /** @var ObjectProphecy<LockFactory> */
     private ObjectProphecy $lockFactory;
 
-    /** @var ObjectProphecy<LockInterface> */
+    /** @var ObjectProphecy<SharedLockInterface> */
     private ObjectProphecy $lock;
 
     private string $configFile;
@@ -45,7 +45,7 @@ class ImportCommandTest extends TestCase
     {
         $this->import = $this->prophesize(Import::class);
         $this->lockFactory = $this->prophesize(LockFactory::class);
-        $this->lock = $this->prophesize(LockInterface::class);
+        $this->lock = $this->prophesize(SharedLockInterface::class);
 
         $this->lockFactory->createLock(Argument::any(), Argument::any())->willReturn($this->lock->reveal());
         $this->lock->acquire()->willReturn(true);
