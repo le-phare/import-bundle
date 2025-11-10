@@ -42,6 +42,10 @@ return static function (ContainerConfigurator $containerConfigurator): void {
         ->tag('import.strategy')
         ->args([service('database_connection')]);
 
+    $services->set('faros_import.strategy.update', \LePhare\Import\Strategy\UpdateStrategy::class)
+        ->tag('import.strategy')
+        ->args([service('database_connection')]);
+
     $services->set('lephare_import.email_report_subscriber', \LePhare\ImportBundle\EventSubscriber\EmailReportSubscriber::class)
         ->tag('kernel.event_subscriber')
         ->args([service(\Symfony\Component\Mailer\MailerInterface::class), '%lephare_import.email_report.recipients%']);
