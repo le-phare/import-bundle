@@ -7,7 +7,7 @@ on:
 
 env:
   PHP_EXTENSIONS: "zip"
-  PHP_VERSION: "8.3"
+  PHP_VERSION: "8.5"
 
 jobs:
   release:
