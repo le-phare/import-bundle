@@ -8,7 +8,7 @@ use Symfony\Component\DependencyInjection\Reference;
 
 class ImportLoadStrategyPass implements CompilerPassInterface
 {
-    public function process(ContainerBuilder $container)
+    public function process(ContainerBuilder $container): void
     {
         if (!$container->hasDefinition('lephare_import.load_strategy_repository')) {
             return;

@@ -26,7 +26,7 @@ class MakeImport extends AbstractMaker
         return 'Creates a new import';
     }
 
-    public function configureCommand(Command $command, InputConfiguration $inputConf)
+    public function configureCommand(Command $command, InputConfiguration $inputConf): void
     {
         $command
             ->setDescription('Creates a new import')
@@ -36,7 +36,7 @@ class MakeImport extends AbstractMaker
         ;
     }
 
-    public function generate(InputInterface $input, ConsoleStyle $io, Generator $generator)
+    public function generate(InputInterface $input, ConsoleStyle $io, Generator $generator): void
     {
         $importName = 'config/import/'.Str::asFilePath($input->getArgument('name')).'.yaml';
         $columns = ['<column_in_csv>'];
@@ -79,7 +79,7 @@ class MakeImport extends AbstractMaker
         ]);
     }
 
-    public function configureDependencies(DependencyBuilder $dependencies)
+    public function configureDependencies(DependencyBuilder $dependencies): void
     {
         $dependencies->addClassDependency(
             Import::class,

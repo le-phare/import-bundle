@@ -25,7 +25,7 @@ class ImportCommand extends Command
         parent::__construct();
     }
 
-    public function configure()
+    public function configure(): void
     {
         $this
             ->setName('lephare:import')
