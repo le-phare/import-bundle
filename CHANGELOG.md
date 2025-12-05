@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file.
 
+## [2.2.3](https://github.com/le-phare/import-bundle/compare/v2.2.2...v2.2.3) (2025-11-26)
+
+
+### Bug Fixes
+
+* **deprecations:** add missing void return types ([a689ef4](https://github.com/le-phare/import-bundle/commit/a689ef490a9afd7b232f938cf128f2beffeabd9f))
+* **deprecations:** add void return type to LePhareImportBundle build method ([cd05313](https://github.com/le-phare/import-bundle/commit/cd0531386ff6cdd7450e61ab27c935c5bdb7ec7e))
+
+
+### Miscellaneous Chores
+
+* **github:** add PHP 8.4 and 8.5 to test matrix ([a4780eb](https://github.com/le-phare/import-bundle/commit/a4780eb6f988b2aa458dd8f4d50650d9ad9b6f48))
+
 ## [2.2.2](https://github.com/le-phare/import-bundle/compare/v2.2.1...v2.2.2) (2025-08-27)
 
 
