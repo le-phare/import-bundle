@@ -17,6 +17,8 @@ class ImportCommand extends Command
     private Import $import;
     private LockFactory $lockFactory;
 
+    protected static $defaultName = 'lephare:import';
+
     public function __construct(Import $import, LockFactory $lockFactory)
     {
         $this->import = $import;
@@ -28,7 +30,6 @@ class ImportCommand extends Command
     public function configure(): void
     {
         $this
-            ->setName('lephare:import')
             ->addArgument('config', InputArgument::REQUIRED, 'The import config file')
             ->addOption('no-load', null, InputOption::VALUE_NONE, 'Use the already loaded data')
             ->addOption('lock-name', 'L', InputOption::VALUE_OPTIONAL, 'Use to lock command by name', static::class)
