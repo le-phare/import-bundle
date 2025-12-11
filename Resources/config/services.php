@@ -24,7 +24,7 @@ return static function (ContainerConfigurator $containerConfigurator): void {
         ->lazy()
         ->arg('$import', service(\LePhare\Import\ImportInterface::class))
         ->arg('$lockFactory', service('lock.default.factory'))
-        ->tag('console.command');
+        ->tag('console.command', ['command' => 'lephare:import']);
 
     $services->set('lephare_import.configuration', \LePhare\Import\ImportConfiguration::class)
         ->args(['']);

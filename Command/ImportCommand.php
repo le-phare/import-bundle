@@ -17,8 +17,6 @@ class ImportCommand extends Command
     private Import $import;
     private LockFactory $lockFactory;
 
-    protected static $defaultName = 'lephare:import';
-
     public function __construct(Import $import, LockFactory $lockFactory)
     {
         $this->import = $import;
