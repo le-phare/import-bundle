@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file.
 
+## [2.2.5](https://github.com/le-phare/import-bundle/compare/v2.2.4...v2.2.5) (2025-12-12)
+
+
+### Bug Fixes
+
+* make ImportCommand service lazy to prevent database connection on Symfony cache clear ([#52](https://github.com/le-phare/import-bundle/issues/52)) ([5c89f70](https://github.com/le-phare/import-bundle/commit/5c89f707b52e61aca324ce895a3b4f5ece71a6c7))
+
+
+### Miscellaneous Chores
+
+* remove non necessary lazy ([#53](https://github.com/le-phare/import-bundle/issues/53)) ([0c00210](https://github.com/le-phare/import-bundle/commit/0c00210cb9fbb2b1b61f1ad3337738b6f68be44f))
+
 ## [2.2.4](https://github.com/le-phare/import-bundle/compare/v2.2.3...v2.2.4) (2025-12-08)
 
 
