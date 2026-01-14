@@ -12,7 +12,7 @@ return static function (ContainerConfigurator $containerConfigurator): void {
     $services->set('lephare.import', \LePhare\Import\Import::class)
         ->public()
         ->tag('monolog.logger', ['channel' => 'import'])
-        ->args([service('database_connection'), service('event_dispatcher'), service('lephare_import.strategy_repository'), service('lephare_import.load_strategy_repository'), service('lephare_import.configuration'), service('logger')->nullOnInvalid()]);
+        ->args([service('database_connection'), service('event_dispatcher'), service('lephare_import.strategy_repository'), service('lephare_import.load_strategy_repository'), service('lephare_import.configuration'), service('translator')->nullOnInvalid(), service('logger')->nullOnInvalid()]);
 
     $services->set('lephare_import.log_import_subscriber', \LePhare\ImportBundle\EventSubscriber\LogImportSubscriber::class)
         ->tag('kernel.event_subscriber');
